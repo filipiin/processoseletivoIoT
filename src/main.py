@@ -52,17 +52,17 @@ def main():
 
     while True:
         agora = time.ticks_ms()   
-        lux = ler_lux()          
+        lux = ldr.read()      
 
         # Verifica luz ambiente se tava livre e a luz caiu abaixo do limiar 
         # Marca a hora que a peça entrou e reseta o alerta pra caso tenha sido disparado antes
-        if not bloqueado and lux < LIMIAR_BLOQUEIO:
+        if not bloqueado and lux > 2045:
             bloqueado = True
             inicio_bloqueio = agora      
             alerta_emitido = False       
         
         # Se tava bloqueado e a luz subiu acima do limiar -> a peça saiu conta +1
-        elif bloqueado and lux > LIMIAR_LIVRE:
+        elif bloqueado and lux < 999:
             bloqueado = False
             contador += 1                
             print(f"Peca detectada! Total: {contador}")
