@@ -1,7 +1,32 @@
 {
   "version": 1,
-  "author": "Uri Shaked",
+  "author": "Filipe Leite",
   "editor": "wokwi",
-  "parts": [ { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} } ],
-  "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ]
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -19.2,
+      "left": -23.96,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 140.6,
+      "left": 105.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 80, "left": -258.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:5V", "red", [ "h9.6", "v28.8" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h19.2", "v-10" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "h28.8", "v-135.1" ] ],
+    [ "btn1:1.l", "esp:5", "green", [ "h-9.6", "v-57.6" ] ],
+    [ "btn1:2.l", "esp:GND.3", "green", [ "h-19.2", "v-105.4" ] ]
+  ],
+  "dependencies": {}
 }
