@@ -4,7 +4,7 @@ from machine import Pin, ADC
 LIMIAR_BLOQUEIO = 100   
 LIMIAR_LIVRE = 500      
 TEMPO_MICROPARADA = 5000 
-DEBOUNCE = 250          
+DEBOUNCE = 50          
 
 # Parâmetros do LDR 
 GAMMA = 0.7             
