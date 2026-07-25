@@ -87,7 +87,7 @@ def main():
         # Se o tempo desde a última mudança passou do debounce -> sinal tá estável
         if time.ticks_diff(agora, tempo_btn) > DEBOUNCE:
             # Detecta borda de descida: estava HIGH (1) e agora está LOW (0) -> pressionou
-            if leitura == 0 and estado_btn == 1:
+            if leitura == 1 and estado_btn == 0:
                 contador = 0
                 bloqueado = False
                 alerta_emitido = False
